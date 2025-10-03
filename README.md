@@ -1,6 +1,6 @@
-# **🤟 MasterySign: A Progressive Sign Language Quiz App**
+# **🤟 Visible Voice: A Progressive Sign Language Quiz App**
 
-MasterySign is an interactive, level-based quiz application designed to help users learn and master sign language vocabulary through varied practice modes. It enforces a strict mastery requirement across multiple quiz formats before allowing progression, ensuring deep retention and understanding.
+Visible Voice is an interactive, level-based quiz application designed to help users learn and master sign language vocabulary through varied practice modes. It enforces a strict mastery requirement across multiple quiz formats before allowing progression, ensuring deep retention and understanding.
 
 ## **✨ Features**
 
