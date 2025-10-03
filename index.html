@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Language Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Google+Sans:wght[400,700]&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div id="level-status-container" class="level-status-container">
+            Current Level: <span id="current-level-display">1</span> 
+        </div>
+        <div id="score-container">Score: <span id="current-score">0</span></div>
+        <div id="streak-container">🔥 Streak: <span id="current-streak">0</span></div>
+    </header>
+    <main id="main-card">
+        
+        <div class="mode-toggle-container">
+            <!-- Display for the randomized mode -->
+            <span id="active-mode-display" class="mode-display-label">Mode: RANDOM</span>
+        </div>
+        
+        <!-- Unified Quiz UI Container -->
+        <div id="quiz-ui"> 
+            
+            <!-- Video element used for MCQ and Type-In mode (Video-to-Word) -->
+            <video id="main-video" class="video-player" controls autoplay loop playsinline muted></video>
+            
+            <!-- Paragraph element used for Video Select mode (Word-to-Video) and Type-In (as a hint) -->
+            <p id="word-to-select" class="word-to-select"></p>
+
+            <!-- Type-In Specific Input and Submit (Shown only during Type-In Mode) -->
+            <div id="type-in-input-container" style="display: none;" class="input-container">
+                <input type="text" id="type-in-answer-input" placeholder="Type the word here..." class="text-input" autocomplete="off">
+                <button class="md-button submit-button" id="type-in-submit-button">Submit Answer</button>
+            </div>
+            
+            <!-- Container for options (Words in MCQ, Videos in Select) -->
+            <div id="options-container" class="options-container">
+                <!-- Content is dynamically populated here by app.js -->
+            </div>
+            
+            <div class="buttons-container">
+                <!-- Review Mode toggle button -->
+                <button class="md-button" id="review-mode-button">Review Mode (0)</button>
+                <button class="md-button" id="next-button" disabled>Next Sign</button>
+            </div>
+            <p id="feedback-text"></p>
+        </div>
+        
+    </main>
+    <footer>
+        <!-- Footer content remains here -->
+    </footer>
+    
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+/* style.css */
+
+/* Expressive Material You Palette (Vibrant, Saturated) */
+:root {
+    --md-sys-color-primary: #8C47A7; /* Vibrant Purple */
+    --md-sys-color-on-primary: #FFFFFF;
+    --md-sys-color-background: #FAF8FF; /* Light background */
+    --md-sys-color-on-background: #1D1A21;
+    --md-sys-color-surface: #F5EFFF; /* Lightly colored surface for elevation */
+    --md-sys-color-on-surface: #1D1A21;
+    --md-sys-color-tertiary: #984062; /* Raspberry accent */
+    --md-sys-color-error: #B3261E; 
+    --md-sys-color-on-error: #FFFFFF;
+    --md-sys-color-correct: #388E3C; /* Darker Green for better contrast */
+    --md-sys-color-incorrect: #D32F2F; /* Darker Red */
+    --md-sys-color-secondary: #745A77; /* Secondary purple */
+    
+    --border-radius-large: 28px;
+    --border-radius-medium: 16px;
+    --elevation-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 1px 4px rgba(0, 0, 0, 0.08);
+    --interactive-shadow: 0 8px 16px rgba(140, 71, 167, 0.3); /* Shadow based on primary color */
+}
+
+/* General Layout and Typography */
+body {
+    font-family: 'Google Sans', 'Roboto Mono', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--md-sys-color-background);
+    color: var(--md-sys-color-on-background);
+    transition: background-color 0.5s ease;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    max-width: 800px;
+    font-weight: 700;
+}
+
+#level-status-container {
+    font-size: 1.5em;
+    color: var(--md-sys-color-primary);
+}
+
+#score-container, #streak-container {
+    font-size: 1.2em;
+    padding: 8px 16px;
+    background-color: var(--md-sys-color-surface);
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--elevation-shadow);
+}
+
+/* Main Quiz Card */
+#main-card {
+    background-color: var(--md-sys-color-surface);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--elevation-shadow);
+    padding: 30px;
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Mode Display and Toggles (Minimalist) */
+.mode-toggle-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.mode-display-label {
+    font-weight: 700;
+    color: var(--md-sys-color-secondary);
+    font-size: 1.1em;
+    padding: 4px 12px;
+    border-radius: var(--border-radius-medium);
+    background-color: color-mix(in srgb, var(--md-sys-color-surface) 90%, var(--md-sys-color-secondary));
+}
+
+/* Video Player */
+.video-player {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-large);
+    border: 4px solid var(--md-sys-color-primary);
+    box-shadow: var(--interactive-shadow);
+    margin-bottom: 25px;
+}
+
+/* Word Prompt */
+.word-to-select {
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--md-sys-color-tertiary);
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 10px 20px;
+    border-radius: var(--border-radius-medium);
+    background-color: color-mix(in srgb, var(--md-sys-color-tertiary) 10%, transparent);
+}
+
+/* Buttons and Options */
+.buttons-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.md-button {
+    cursor: pointer;
+    border: none;
+    padding: 14px 28px;
+    font-size: 1.1em;
+    font-weight: 700;
+    border-radius: var(--border-radius-medium);
+    transition: background-color 0.2s, box-shadow 0.2s, transform 0.1s;
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    box-shadow: var(--elevation-shadow);
+}
+
+.md-button:hover:not(:disabled) {
+    background-color: color-mix(in srgb, var(--md-sys-color-primary) 90%, black);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+}
+
+.md-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.submit-button, #next-button {
+    flex-grow: 1;
+    max-width: 200px;
+    font-size: 1.2em;
+}
+
+#review-mode-button {
+    background-color: var(--md-sys-color-secondary);
+}
+
+/* MCQ Word Options */
+.options-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.quiz-option-button {
+    background-color: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface);
+    border: 2px solid var(--md-sys-color-surface);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+}
+
+.quiz-option-button:hover:not(:disabled) {
+    border-color: var(--md-sys-color-primary);
+    background-color: var(--md-sys-color-surface);
+    color: var(--md-sys-color-primary);
+}
+
+
+/* Video Select Grid */
+.video-select-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.video-option {
+    border: 4px solid var(--md-sys-color-surface);
+    border-radius: var(--border-radius-medium);
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    box-shadow: var(--elevation-shadow);
+}
+
+.video-option:hover {
+    border-color: var(--md-sys-color-primary);
+    transform: scale(1.02);
+    box-shadow: var(--interactive-shadow);
+}
+
+.video-option-player {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Type-In Input */
+.input-container {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+.text-input {
+    flex-grow: 1;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    border-radius: var(--border-radius-medium);
+    border: 2px solid var(--md-sys-color-secondary);
+    outline: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.text-input:focus {
+    border-color: var(--md-sys-color-primary);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--md-sys-color-primary) 30%, transparent);
+}
+
+/* Feedback Text */
+.feedback {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: 700;
+    text-align: center;
+    padding: 10px;
+    border-radius: var(--border-radius-medium);
+}
+
+.correct-answer-text {
+    color: var(--md-sys-color-correct);
+    background-color: color-mix(in srgb, var(--md-sys-color-correct) 15%, transparent);
+}
+
+.incorrect-answer-text {
+    color: var(--md-sys-color-incorrect);
+    background-color: color-mix(in srgb, var(--md-sys-color-incorrect) 15%, transparent);
+}
+
+/* Answer Highlighting */
+.correct-answer {
+    /* For buttons, inputs, and video-option containers */
+    background-color: var(--md-sys-color-correct) !important;
+    color: var(--md-sys-color-on-error) !important; 
+    box-shadow: 0 0 10px color-mix(in srgb, var(--md-sys-color-correct) 70%, transparent) !important;
+    border-color: var(--md-sys-color-correct) !important; 
+    outline: 4px solid var(--md-sys-color-correct); 
+    outline-offset: -4px;
+}
+
+.incorrect-answer {
+    /* For buttons, inputs, and video-option containers */
+    background-color: var(--md-sys-color-incorrect) !important;
+    color: var(--md-sys-color-on-error) !important;
+    opacity: 0.8;
+    border-color: var(--md-sys-color-incorrect) !important;
+    outline: 4px solid var(--md-sys-color-incorrect);
+    outline-offset: -4px;
+}
+
+/* Specific reset for inputs */
+input.correct-answer, input.incorrect-answer {
+    background-color: white !important;
+    color: var(--md-sys-color-on-background) !important;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    header {
+        padding: 15px 0;
+        flex-direction: column;
+        gap: 10px;
+    }
+    #main-card {
+        padding: 20px 15px;
+    }
+    .word-to-select {
+        font-size: 1.5em;
+    }
+    .md-button {
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+    .input-container {
+        flex-direction: column;
+    }
+    .submit-button {
+        max-width: none;
+    }
+    .video-select-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+}
